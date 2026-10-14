@@ -10,7 +10,7 @@ export type AttendanceRecord = {
 
 export function createAttendanceRecords(students: Student[]): AttendanceRecord[] {
   return students.map((student, index) => ({
-    studentId: student.id,
+    studentId: student._id,
     status: index === 2 ? "late" : "present",
     note: ""
   }));

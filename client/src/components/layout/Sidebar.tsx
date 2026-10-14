@@ -20,7 +20,7 @@ export function Sidebar() {
       </div>
 
       <nav className="space-y-1">
-        {navItems.map((item, index) => {
+        {navItems.map((item) => {
           const Icon = item.icon;
 
           return (
