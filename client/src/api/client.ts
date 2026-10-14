@@ -20,8 +20,12 @@ export async function apiRequest<T>(path: string, options: ApiOptions = {}): Pro
 
   if (!response.ok) {
     if (response.status === 401) {
-        localStorage.removeItem("authToken");
-        localStorage.removeItem("demoAuth");
+      localStorage.removeItem("authToken");
+      localStorage.removeItem("demoAuth");
+
+      if (window.location.pathname !== "/login") {
+        window.location.href = "/login";
+      }
     }
 
     throw new Error(data?.message || "Request failed");

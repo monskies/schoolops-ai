@@ -6,6 +6,7 @@ import { Card } from "../components/ui/Card";
 import { Input } from "../components/ui/Input";
 import { apiRequest } from "../api/client";
 import { endpoints } from "../api/endpoints";
+import { AuroraBackground } from "../components/login/AuroraBackground";
 
 export function LoginPage() {
   const [error, setError] = useState("");
@@ -42,7 +43,10 @@ export function LoginPage() {
   }
 
   return (
-    <main className="grid min-h-screen place-items-center bg-[var(--background)] px-4 text-[var(--text)]">
+    <main className="relative grid min-h-screen place-items-center bg-[var(--background)] px-4 text-[var(--text)]">
+      
+      <AuroraBackground />
+
       <motion.div
         initial={{ opacity: 0, y: 12 }}
         animate={{ opacity: 1, y: 0 }}
