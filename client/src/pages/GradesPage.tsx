@@ -194,7 +194,19 @@ export function GradesPage() {
             </Button>
             </div>
 
-            {filteredGrades.length ? (
+            {error ? (
+            <p className="mb-4 rounded-xl border border-red-500/30 bg-red-500/10 px-4 py-3 text-sm text-red-300">
+                {error}
+            </p>
+            ) : null}
+
+            {isLoading ? (
+            <div className="space-y-3">
+                <div className="h-12 animate-pulse rounded-xl bg-[var(--surface)]" />
+                <div className="h-12 animate-pulse rounded-xl bg-[var(--surface)]" />
+                <div className="h-12 animate-pulse rounded-xl bg-[var(--surface)]" />
+            </div>
+            ) : filteredGrades.length ? (
             <div className="overflow-x-auto">
                 <table className="w-full min-w-[760px] border-separate border-spacing-y-2 text-left text-sm">
                 <thead className="text-[var(--muted)]">

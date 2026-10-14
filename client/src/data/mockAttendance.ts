@@ -1,5 +1,3 @@
-import type { Student } from "./mockStudents";
-
 export type AttendanceStatus = "present" | "absent" | "late" | "excused";
 
 export type AttendanceRecord = {
@@ -8,7 +6,13 @@ export type AttendanceRecord = {
   note: string;
 };
 
-export function createAttendanceRecords(students: Student[]): AttendanceRecord[] {
+type MockAttendanceStudent = {
+  _id: string;
+};
+
+export function createAttendanceRecords(
+  students: MockAttendanceStudent[]
+): AttendanceRecord[] {
   return students.map((student, index) => ({
     studentId: student._id,
     status: index === 2 ? "late" : "present",

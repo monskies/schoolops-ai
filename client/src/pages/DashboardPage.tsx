@@ -9,8 +9,7 @@ type DashboardMetrics = {
 import { motion } from "framer-motion";
 import { AttendanceTrendChart } from "../components/dashboard/AttendanceTrendChart";
 import { RecentActivity } from "../components/dashboard/RecentActivity";
-import { StatCard } from "../components/dashboard/StatCard"; 
-import { attendanceTrend, recentActivity } from "../data/mockDashboard";
+import { StatCard } from "../components/dashboard/StatCard";
 import { useEffect, useState } from "react"; 
 import { apiRequest } from "../api/client";
 import { endpoints } from "../api/endpoints";

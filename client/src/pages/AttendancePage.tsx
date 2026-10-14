@@ -1,11 +1,3 @@
-type AttendanceApiRecord = {
-  _id: string;
-  student: Student | null;
-  date: string;
-  status: AttendanceStatus | "excused";
-  note?: string;
-};
-
 import { useEffect, useMemo, useState } from "react";
 import { motion } from "framer-motion";
 import { FiCheck, FiClock, FiSave, FiX } from "react-icons/fi";
@@ -13,10 +5,27 @@ import { Badge } from "../components/ui/Badge";
 import { Button } from "../components/ui/Button";
 import { Card } from "../components/ui/Card";
 import { Input } from "../components/ui/Input";
-import type { AttendanceStatus } from "../data/mockAttendance";
 import { apiRequest } from "../api/client";
 import { endpoints } from "../api/endpoints";
-import type { Student } from "../data/mockStudents";
+
+type Student = {
+  _id: string;
+  firstName: string;
+  lastName: string;
+  gradeLevel: number;
+  guardianEmail?: string;
+  status?: "active" | "inactive";
+};
+
+type AttendanceStatus = "present" | "absent" | "late" | "excused";
+
+type AttendanceApiRecord = {
+  _id: string;
+  student: Student | null;
+  date: string;
+  status: AttendanceStatus;
+  note?: string;
+};
 
 const statusOptions: Array<{
   label: string;
@@ -249,7 +258,7 @@ export function AttendancePage() {
 
               return (
                 <div
-                  key={student.id}
+                  key={student._id}
                   className="grid gap-3 rounded-2xl border border-[var(--border)] bg-[var(--surface)] p-4 lg:grid-cols-[1fr_auto_240px]"
                 >
                   <div>
