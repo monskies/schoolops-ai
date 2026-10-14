@@ -51,7 +51,7 @@ export function LoginPage() {
         initial={{ opacity: 0, y: 12 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.3 }}
-        className="w-full max-w-md"
+        className="relative z-10 w-full max-w-md"
       >
         <Card className="p-6">
           <div className="mb-6 flex h-12 w-12 items-center justify-center rounded-2xl border border-[var(--border)] bg-[var(--surface)]">
@@ -83,6 +83,24 @@ export function LoginPage() {
             <Button className="w-full" type="submit">
               Login
             </Button>
+
+            <Button
+            type="button"
+            variant="secondary"
+            className="mt-3 w-full"
+            onClick={() => {
+              const form = document.querySelector("form");
+              if (!form) return;
+
+              const emailInput = form.querySelector<HTMLInputElement>('input[name="email"]');
+              const passwordInput = form.querySelector<HTMLInputElement>('input[name="password"]');
+
+              if (emailInput) emailInput.value = "admin@schoolops.ai";
+              if (passwordInput) passwordInput.value = "adminschoolops123";
+            }}
+          >
+            Fill Demo Login
+          </Button>
           </form>
         </Card>
       </motion.div>

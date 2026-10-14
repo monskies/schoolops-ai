@@ -15,6 +15,12 @@ export function TopBar() {
     setTheme((current) => (current === "dark" ? "light" : "dark"));
   }
 
+  function handleLogout() {
+    localStorage.removeItem("authToken");
+    localStorage.removeItem("demoAuth");
+    window.location.href = "/login";
+  }
+
   return (
     <header className="sticky top-0 z-20 border-b border-[var(--border)] bg-[var(--surface)] px-4 py-3 backdrop-blur-xl sm:px-6 lg:px-8">
       <div className="mx-auto flex max-w-7xl items-center gap-3">
@@ -31,8 +37,11 @@ export function TopBar() {
           {theme === "dark" ? <FiSun /> : <FiMoon />}
         </Button>
 
-        <Button variant="secondary" aria-label="User menu">
-          <FiUser />
+        <Button variant="secondary" onClick={handleLogout} aria-label="Logout">
+          <span className="inline-flex items-center gap-2">
+            <FiUser />
+            Logout
+          </span>
         </Button>
       </div>
     </header>
