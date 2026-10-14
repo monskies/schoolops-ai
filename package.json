@@ -1,0 +1,35 @@
+{
+  "name": "ai-school-management-dashboard",
+  "version": "1.0.0",
+  "description": "Portfolio project: AI-assisted school management dashboard with REST APIs, integrations, and automations.",
+  "main": "src/server.js",
+  "scripts": {
+    "dev": "nodemon src/server.js",
+    "start": "node src/server.js",
+    "seed": "node src/scripts/seed.js",
+    "test": "node --test"
+  },
+  "keywords": [
+    "portfolio",
+    "express",
+    "mongodb",
+    "automation",
+    "api"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "csv-writer": "^1.6.0",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "jsonwebtoken": "^9.0.3",
+    "mongoose": "^8.9.5",
+    "nodemailer": "^6.9.16",
+    "openai": "^7.32.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.9",
+    "supertest": "^7.0.0"
+  }
+}

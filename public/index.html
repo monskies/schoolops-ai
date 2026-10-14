@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SchoolOps AI Dashboard</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <aside class="sidebar">
+      <div>
+        <p class="eyebrow">Portfolio Project</p>
+        <h1>SchoolOps AI</h1>
+      </div>
+      <nav aria-label="Primary navigation">
+        <a href="#dashboard">Dashboard</a>
+        <a href="#students">Students</a>
+        <a href="#automations">Automations</a>
+      </nav>
+    </aside>
+
+    <main>
+
+      <section class="panel" id="loginPanel">
+        <div class="panel-header">
+          <div>
+            <p class="eyebrow">Admin Access</p>
+            <h3>Login</h3>
+          </div>
+        </div>
+
+        <form id="loginForm" class="form-grid">
+          <input name="email" type="email" placeholder="Email" required />
+          <input name="password" type="password" placeholder="Password" required />
+          <button type="submit">Login</button>
+        </form>
+      </section>
+
+      <section class="hero" id="dashboard">
+        <div>
+          <p class="eyebrow">AI-assisted web development + backend APIs</p>
+          <h2>School management dashboard with attendance, grades, and workflow automations.</h2>
+        </div>
+        <div class="hero-actions">
+          <span id="currentUser" class="current-user"></span>
+          <button id="refreshButton" type="button">Refresh Data</button>
+          <button id="logoutButton" type="button">Logout</button>
+        </div>
+      </section>
+
+      <section class="metrics" aria-label="Dashboard metrics">
+        <article>
+          <span>Active Students</span>
+          <strong id="activeStudents">--</strong>
+        </article>
+        <article>
+          <span>Attendance Rate</span>
+          <strong id="attendanceRate">--</strong>
+        </article>
+        <article>
+          <span>Average Grade</span>
+          <strong id="averageGrade">--</strong>
+        </article>
+        <article>
+          <span>Total Grades</span>
+          <strong id="totalGrades">--</strong>
+        </article>
+      </section>
+
+      <section class="workspace">
+        <div class="panel" id="students">
+          <div class="panel-header">
+            <div>
+              <p class="eyebrow">Records</p>
+              <h3>Students</h3>
+            </div>
+          </div>
+          <form id="studentForm" class="form-grid">
+            <input name="firstName" placeholder="First name" required />
+            <input name="lastName" placeholder="Last name" required />
+            <input name="gradeLevel" type="number" min="1" max="12" placeholder="Grade" required />
+            <input name="guardianEmail" type="email" placeholder="Guardian email" />
+            <button id="studentSubmitButton" type="submit">Add Student</button>
+          </form>
+          <div id="studentList" class="list"></div>
+        </div>
+
+        <div class="panel" id="attendance">
+          <div class="panel-header">
+            <div>
+              <p class="eyebrow">Daily Tracking</p>
+              <h3>Attendance</h3>
+            </div>
+          </div>
+
+          <form id="attendanceForm" class="form-grid">
+            <select name="student" id="attendanceStudent" required></select>
+            <input name="date" type="date" required />
+
+            <select name="status" required>
+              <option value="present">Present</option>
+              <option value="absent">Absent</option>
+              <option value="late">Late</option>
+              <option value="excused">Excused</option>
+            </select>
+
+            <input name="note" placeholder="Note" />
+            <button type="submit">Record Attendance</button>
+          </form>
+
+          <div id="attendanceList" class="list"></div>
+
+        </div>
+
+        <div class="panel" id="grades">
+          <div class="panel-header">
+            <div>
+              <p class="eyebrow">Academic Tracking</p>
+              <h3>Grades</h3>
+            </div>
+          </div>
+
+          <form id="gradeForm" class="form-grid">
+            <select name="student" id="gradeStudent" required></select>
+            <input name="subject" placeholder="Subject" required />
+            <input name="score" type="number" min="0" max="100" placeholder="Score" required />
+            <input name="term" placeholder="Term, e.g. Q1" required />
+            <input name="feedback" placeholder="Feedback" />
+            <button type="submit">Add Grade</button>
+          </form>
+
+          <div id="gradeList" class="list"></div>
+
+        </div>
+
+        <div class="panel" id="automations">
+          <div class="panel-header">
+            <div>
+              <p class="eyebrow">Workflow</p>
+              <h3>Automations</h3>
+            </div>
+          </div>
+          <div class="automation-actions">
+            <button id="reportButton" type="button">Generate CSV Report</button>
+            <button id="emailButton" type="button">Preview Email Summary</button>
+          </div>
+          <pre id="automationOutput">Automation results will appear here.</pre>
+        </div>
+      </section>
+    </main>
+
+    <script src="/app.js"></script>
+  </body>
+</html>
