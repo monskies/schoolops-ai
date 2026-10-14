@@ -13,7 +13,7 @@ import { Badge } from "../components/ui/Badge";
 import { Button } from "../components/ui/Button";
 import { Card } from "../components/ui/Card";
 import { Input } from "../components/ui/Input";
-import { createAttendanceRecords, type AttendanceStatus } from "../data/mockAttendance";
+import type { AttendanceStatus } from "../data/mockAttendance";
 import { apiRequest } from "../api/client";
 import { endpoints } from "../api/endpoints";
 import type { Student } from "../data/mockStudents";
